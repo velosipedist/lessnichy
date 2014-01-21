@@ -1,0 +1,12 @@
+{
+    "name": "velosipedist/lessnichy",
+    "description": "browser hook for native .less compiler",
+    "keywords": ["less", "browser", "lessnichy"],
+    "require": {
+        "php": "5.3.*"
+    },
+    "require-dev": {
+        "kherge/box": "2.4.*",
+        "slim/slim": "2.4.*"
+    }
+}
