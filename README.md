@@ -1,11 +1,23 @@
 # lessnichy
 
-Secluded place where LESS web sources metamorphosed to css.
+Can include  .less stylesheets into HTML template instead of common css manager's output (even if has printed).
 
-Also can print out .less stylesheets instead of common css manager's output (even if has printed)
+For now supports only plain php templates. Twig, Yii, Laravel, etc will be supported in nearest future using additional bridges.
 
+## Workflow
 
-### Draft plan
+* Requesting `www.yourdomain.com/{lessnichy-dir}` from browser for log in to Lessnichy site-wide session.
+* After session opened, small helper toolbar will be sticked at browser window in any site page.
+* Edit & upload your LESS files, they will be compiled & saved automatically
+
+### Browser toolbar features
+
+* notify about changed LESS files
+* re-compile page stylesheets by demand
+* turn less.watchMode on & off
+* log you out from session
+
+### Draft code plan
 
 ```yaml
 # app directories structure
@@ -32,7 +44,8 @@ gzip: false
 // index.php
 
 $app->get('/', function(){
-  // give hints doc about usage
+  // session login functionality
+  // + give hints doc about usage & workflow
 });
 
 $app->get('/:sourcename.css', function(){
