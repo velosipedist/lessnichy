@@ -1,4 +1,5 @@
 .idea
+*.sublime-project
 vendor
-box.phar
+*.phar
 composer.lock

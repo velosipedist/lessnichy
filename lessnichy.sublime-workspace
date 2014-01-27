@@ -1,0 +1,734 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"unse",
+				"unset"
+			],
+			[
+				"translated",
+				"translatedEntries"
+			],
+			[
+				"tr",
+				"translations"
+			],
+			[
+				"tra",
+				"translation"
+			],
+			[
+				"pri",
+				"prints"
+			],
+			[
+				"clas",
+				"class	class …"
+			],
+			[
+				"ret",
+				"ret	return"
+			],
+			[
+				"fun",
+				"function ~phpCodeGen	@function ~phpCodeGen"
+			],
+			[
+				"arm",
+				"array_map"
+			],
+			[
+				"deb",
+				"debug_print_backtrace"
+			],
+			[
+				"isnu",
+				"is_null"
+			],
+			[
+				"vadu",
+				"var_dump"
+			],
+			[
+				"li",
+				"lineErr"
+			],
+			[
+				"pa",
+				"param	@param"
+			],
+			[
+				"stream_wr",
+				"stream_wrapper_register"
+			],
+			[
+				"pu",
+				"public"
+			],
+			[
+				"cl",
+				"class ~phpCodeGen	@class ~phpCodeGen"
+			],
+			[
+				"c",
+				"class	class …"
+			],
+			[
+				"pr",
+				"print"
+			],
+			[
+				"trans",
+				"transl"
+			],
+			[
+				"fin",
+				"find"
+			],
+			[
+				"en",
+				"entries"
+			],
+			[
+				"src",
+				"srcFileName"
+			],
+			[
+				"ra",
+				"rawTranslation"
+			],
+			[
+				"cla",
+				"classRefl"
+			],
+			[
+				"fil",
+				"filename"
+			],
+			[
+				"up",
+				"updateTranslationFiles"
+			],
+			[
+				"class",
+				"classRefl"
+			],
+			[
+				"getName",
+				"getMoName"
+			],
+			[
+				"moE",
+				"moExtractor"
+			],
+			[
+				"po",
+				"poGenerator"
+			],
+			[
+				"poen",
+				"poEntries"
+			],
+			[
+				"tpl",
+				"tplEntries"
+			],
+			[
+				"th",
+				"third"
+			],
+			[
+				"docum",
+				"document"
+			],
+			[
+				"stri",
+				"string"
+			],
+			[
+				"t",
+				"table"
+			],
+			[
+				"bs3ra",
+				"bs3-input:range:h	bs3-input-range-h"
+			],
+			[
+				"bs3",
+				"bs3-form	bs3-form"
+			],
+			[
+				"vl",
+				"value	Attr"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"selected_items":
+		[
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"xdebug ",
+				"Preferences: Xdebug Settings – Default"
+			],
+			[
+				"breakpoint",
+				"Xdebug: Add/Remove Breakpoint"
+			],
+			[
+				"debug",
+				"Xdebug: Start Debugging"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"lint",
+				"SublimeLinter: Show All Errors"
+			],
+			[
+				"format",
+				"Format Code"
+			],
+			[
+				"forma",
+				"Format Code"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"git s",
+				"Git: Status"
+			],
+			[
+				"doc",
+				"Snippet: Start Docblock"
+			],
+			[
+				"gist",
+				"Gist: Create Public Gist"
+			],
+			[
+				"tabs",
+				"Indentation: Convert to Tabs"
+			],
+			[
+				"json",
+				"Composer: Validate composer.json"
+			],
+			[
+				"pca",
+				"Package Control: Install Package"
+			],
+			[
+				"pack",
+				"Package Control: List Packages"
+			],
+			[
+				"list pa",
+				"Package Control: List Packages"
+			],
+			[
+				"packa",
+				"Package Control: Remove Package"
+			],
+			[
+				"linte",
+				"SublimeLinter: Don’t Show Errors on Save"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"update pa",
+				"Package Control: Upgrade/Overwrite All Packages"
+			],
+			[
+				"PHP Code Sniffer: ",
+				"PHP Code Sniffer: Sniff this file"
+			],
+			[
+				"remov",
+				"Package Control: Remove Package"
+			],
+			[
+				"compo",
+				"Composer: Edit composer.json"
+			],
+			[
+				"emew",
+				"Emmet: Wrap With Abbreviation"
+			],
+			[
+				"blade",
+				"Laravel Facade: Blade"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"bs3i",
+				"Snippet: bs3-input-checkbox"
+			],
+			[
+				"in",
+				"Package Control: Install Package"
+			],
+			[
+				"apcka",
+				"Package Control: Install Package"
+			],
+			[
+				"pac",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 416.0
+	},
+	"console":
+	{
+		"height": 285.0,
+		"history":
+		[
+			"view",
+			"ls",
+			"import urllib.request,os; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); open(os.path.join(ipp, pf), 'wb').write(urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ','%20')).read())"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/D/www/slim-boxed/box.json",
+		"/D/www/slim-boxed/bin/main",
+		"/D/www/slim-boxed/js/lessnichy.js",
+		"/D/www/slim-boxed/css/lessnichy.less",
+		"/D/git/lessnichy/index.php",
+		"/D/www/dump (2).sql",
+		"/D/www/dump (3).sql",
+		"/D/www/dump (4).sql",
+		"/D/www/dump (2).sql.crdownload",
+		"/D/www/dump (1).sql",
+		"/D/www/dump.sql",
+		"/D/www/box-example/box.json",
+		"/D/www/dump (5).sql",
+		"/D/bin/php/php.ini",
+		"/D/www/oauth-server-demo/src/OAuth2Demo/Client/Controllers/ReceiveAuthorizationCode.php",
+		"/D/www/oauth-server-demo/vendor/symfony/http-foundation/Symfony/Component/HttpFoundation/JsonResponse.php",
+		"/D/www/oauth-server-demo/vendor/bshaffer/oauth2-server-httpfoundation-bridge/src/OAuth2/HttpFoundationBridge/Response.php",
+		"/D/foo.php",
+		"/D/git/uf-docs/site/sami-translator/src/velosipedist/sami/translator/TranslatorPlugin.php",
+		"/D/git/uf-docs/site/framework/library/umi/authentication/Authentication.php",
+		"/D/git/uf-docs/site/build.xml",
+		"/D/git/uf-docs/site/api-theme/umi-framework.php",
+		"/D/git/uf-docs/site/api-theme/umi-framework-en.php",
+		"/C/Users/user/AppData/Roaming/Sublime Text 3/Packages/Default/Default (Windows).sublime-keymap",
+		"/D/git/uf-docs/site/sami-translator/tests/fixtures/non-source-files/non-class-file.php",
+		"/D/git/uf-docs/site/sami-translator/tests/fixtures/src/ImplementMe.php",
+		"/D/git/uf-docs/site/gh-pages/api/umi/i18n/translator/namespace-frame.html",
+		"/D/git/uf-docs/site/sami-translator/src/velosipedist/sami/translator/TranslateStreamWrapper.php",
+		"/D/git/uf-docs/site/gh-pages/api/umi/i18n/translator.html",
+		"/D/git/uf-docs/site/bin/transform.php",
+		"/D/git/uf-docs/site/framework/library/umi/hmvc/component/request/TComponentRequestAware.php",
+		"/D/git/uf-docs/book/references/templating.xml",
+		"/D/git/uf-docs/site/sami/vendor/nikic/php-parser/lib/PHPParser/Lexer.php",
+		"/D/git/uf-docs/site/sami-translator/src/velosipedist/sami/translator/ClassVisitor.php",
+		"/D/git/uf-docs/site/sami/Sami/Reflection/ClassReflection.php",
+		"/D/git/uf-docs/site/sami/Sami/Reflection/Reflection.php",
+		"/D/git/uf-docs/site/sami/Sami/Reflection/LazyClassReflection.php",
+		"/D/git/uf-docs/site/test-drive.bat",
+		"/D/git/uf-docs/site/sami/Sami/Parser/ClassTraverser.php",
+		"/D/git/uf-docs/site/sami/Sami/Renderer/Renderer.php",
+		"/D/git/uf-docs/site/sami/Sami/Renderer/Diff.php",
+		"/D/git/uf-docs/site/sami/vendor/symfony/yaml/Symfony/Component/Yaml/Tests/Fixtures/YtsAnchorAlias.yml",
+		"/D/git/uf-docs/site/docbook-theme/fo/autoidx-ng.xsl",
+		"/D/git/uf-docs/book/references/authentication.xml",
+		"/D/git/uf-docs/site/sami/Sami/Parser/Parser.php",
+		"/D/git/uf-docs/site/sami/Sami/Sami.php",
+		"/D/git/uf-docs/site/sami/Sami/Parser/Transaction.php",
+		"/D/git/uf-docs/site/sami/Sami/Project.php",
+		"/D/git/uf-docs/site/build.log",
+		"/D/git/uf-docs/site/framework/vendor/doctrine/common/lib/Doctrine/Common/Reflection/StaticReflectionProperty.php",
+		"/D/git/uf-docs/site/framework/vendor/doctrine/common/lib/Doctrine/Common/Reflection/StaticReflectionParser.php",
+		"/D/git/uf-docs/site/framework/vendor/doctrine/common/lib/Doctrine/Common/Reflection/StaticReflectionMethod.php",
+		"/D/git/uf-docs/site/framework/vendor/doctrine/common/lib/Doctrine/Common/Reflection/StaticReflectionClass.php",
+		"/D/git/uf-docs/site/sami/vendor/nikic/php-parser/lib/PHPParser/Node.php",
+		"/D/git/uf-docs/site/sami/vendor/nikic/php-parser/lib/PHPParser/NodeAbstract.php",
+		"/D/git/uf-docs/site/sami-translator/vendor/gettext/gettext/Gettext/Entries.php",
+		"/C/Users/user/AppData/Roaming/Sublime Text 3/Packages/User/Xdebug.sublime-settings",
+		"/C/Users/user/AppData/Roaming/Sublime Text 3/Packages/Xdebug Client/Xdebug.sublime-settings",
+		"/D/git/uf-docs/site/sami-translator/vendor/gettext/gettext/Gettext/Translation.php",
+		"/D/git/uf-docs/site/sami-translator/vendor/gettext/gettext/Gettext/Extractors/Po.php",
+		"/D/git/umi-authentication/composer.json",
+		"/C/Users/user/AppData/Roaming/Sublime Text 3/Packages/CodeFormatter/CodeFormatter.sublime-settings",
+		"/D/git/uf-docs/translations/umi/authentication/IAuthentication.pot",
+		"/D/git/uf-docs/site/sami-translator/tests/mock/src/CompleteDocumentedClass.php",
+		"/D/git/uf-docs/site/sami-translator/composer.json",
+		"/D/git/uf-docs/site/docbook-theme/params/process.source.toc.xml",
+		"/D/git/uf-docs/site/docbook-theme/params/procedure.properties.xml",
+		"/D/git/uf-docs/site/docbook-theme/html/profile-onechunk.xsl",
+		"/D/git/uf-docs/translations/umi/config/io/reader/PhpFileReader.pot",
+		"/D/git/uf-docs/site/publish.bat",
+		"/D/git/uf-docs/site/api-theme/UmiFilter.php",
+		"/D/git/uf-docs/translations/umi/authentication/Authentication.pot",
+		"/D/www/sami/vendor/umi/sami-translator/tests/mock/src/CompleteDocumentedClass.php",
+		"/D/git/umi-framework-github-fork/library/umi/authentication/Authentication.php",
+		"/D/git/uf-docs/translations/umi/authentication/Authentication.ru.po",
+		"/D/git/uf-docs/translations/umi/authentication/IAuthenticationAware.ru.po",
+		"/D/git/uf-docs/site/sami-translator/vendor/gettext/gettext/Gettext/Extractors/Extractor.php",
+		"/C/Users/user/AppData/Roaming/Sublime Text 3/Packages/User/Gist.sublime-settings",
+		"/D/git/uf-docs/uf-docs.sublime-project",
+		"/C/Users/user/Desktop/translator.rb",
+		"/C/Users/user/AppData/Roaming/Sublime Text 3/Packages/Gist/Gist.sublime-settings",
+		"/C/Users/user/AppData/Roaming/Sublime Text 3/Packages/User/Ruby.sublime-settings",
+		"/C/Users/user/AppData/Roaming/Sublime Text 3/Packages/PHP Companion/PHP Companion.sublime-settings",
+		"/C/Users/user/AppData/Roaming/Sublime Text 3/Packages/User/PHP Companion.sublime-settings",
+		"/C/Users/user/AppData/Roaming/Sublime Text 3/Packages/User/uf-docs-bat.sublime-build",
+		"/C/Users/user/Dropbox/grindstone-export.bat",
+		"/D/www/sami/vendor/umi/sami-translator/tests/mock/po/mock/ru.po",
+		"/D/www/sami/vendor/umi/sami-translator/.git/config",
+		"/D/git/umi-framework-github-fork/tests/bootstrap.php",
+		"/D/git/umi-sami-translator/composer.json",
+		"/D/www/laravel/vendor/laravel/framework/src/Illuminate/Queue/SyncQueue.php",
+		"/D/git/umi-sami-translator/.git/config",
+		"/D/www/laravel/public/index.php",
+		"/D/bin/php/includes/todo.php",
+		"/C/Users/user/AppData/Roaming/Sublime Text 3/Packages/SublimeLinter/SublimeLinter.sublime-settings",
+		"/C/Users/user/AppData/Roaming/Sublime Text 3/Packages/SublimeLinter-php/README.md",
+		"/C/Users/user/AppData/Roaming/Sublime Text 3/Packages/User/SublimeLinter.sublime-settings",
+		"/C/Users/user/AppData/Roaming/Sublime Text 3/Packages/SublimeLinter-phplint/README.md",
+		"/C/Users/user/AppData/Roaming/Sublime Text 3/Packages/SublimeLinter-phplint/linter.py",
+		"/D/www/laravel/composer.json",
+		"/D/bin/php/pear/peclcmd.php",
+		"/D/www/standarton/1000standards.csv",
+		"/D/www/laravel/app/routes.php",
+		"/D/www/laravel/app/views/blog/list.twig",
+		"/D/www/laravel/app/views/tpl/main.twig",
+		"/D/www/laravel/app/views/tpl/html.twig",
+		"/C/Users/user/Dropbox/1000standards.xml",
+		"/D/www/laravel/public/css/main.css",
+		"/D/www/laravel/app/config/app.php",
+		"/D/www/laravel/app/controllers/BaseController.php",
+		"/D/www/laravel/app/config/packages/rcrowe/twigbridge/config.php",
+		"/D/www/laravel/app/views/hello.php",
+		"/D/git/framework-code-standard/UmiFrameworkStandard/Sniffs/Phpdoc/HeadCopyrightSniff.php",
+		"/C/Users/user/.WebIde60/config/plugins/live-plugins/transformSelectedText/plugin.groovy",
+		"/D/www/laravel/app/database/seeds/DatabaseSeeder.php",
+		"/D/www/laravel/app/models/User.php",
+		"/D/www/laravel/app/config/database.php",
+		"/D/bin/php/includes/todo.bat",
+		"/D/www/laravel/app/database/migrations/2013_11_20_130948_User_create.php",
+		"/D/www/laravel/app/database/migrations/2013_11_20_141950_foo.php",
+		"/D/www/laravel/app/database/migrations/2013_11_20_141915_foo.php",
+		"/D/www/laravel/app/config/auth.php",
+		"/D/www/laravel/app/config/queue.php",
+		"/C/Users/user/.WebIde60/config/plugins/live-plugins/helloWorld/plugin.groovy",
+		"/D/git/framework-code-standard/UmiFrameworkStandard/ruleset.xml",
+		"/D/git/framework-code-standard/CodeSniffer/HeadCopyright.php",
+		"/D/git/framework-code-standard/README.tmd",
+		"/D/git/umi-framework-github-fork/.git/config"
+	],
+	"find":
+	{
+		"height": 61.0
+	},
+	"find_in_files":
+	{
+		"height": 90.0,
+		"where_history":
+		[
+			"D:\\www\\oauth-server-demo\\src"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"$app->get('/css/:file', function($file){\n	print file_get_contents(__DIR__.'/css/'.$file);\n});",
+			"мы тоже рады",
+			"Александр, мы тоже рады",
+			"84463",
+			"Parent",
+			"83568",
+			"69464",
+			"69189",
+			"69071",
+			"83131",
+			"vendor",
+			"2012-08-17",
+			"comment",
+			"comments`",
+			"comments",
+			"redirect",
+			"ctrl+shift+k",
+			"_line",
+			"delete_lin",
+			"delete",
+			"read(",
+			"ru",
+			"localizeEntries",
+			"\");\n",
+			"transla",
+			"build-api,",
+			"translator",
+			"php",
+			"web root",
+			"webroot",
+			"web root",
+			"<delete dir=\"sami-translator\"/>",
+			"sami",
+			"translator",
+			"UmiFilter",
+			"return",
+			" '",
+			"getTags",
+			"autoload",
+			"translateMessages",
+			"filename",
+			"fileName",
+			"\"\n",
+			"filename",
+			"\\",
+			"memory",
+			"memor",
+			"pdo",
+			"show",
+			"().;\n",
+			"localhost",
+			"drop",
+			"colum",
+			"default",
+			"rel",
+			"label",
+			"pattern",
+			"				<input type=\"radio\" name=\"pattern\" id=\"pattern_todo\" value=\"todo\" \n",
+			"short",
+			"todo",
+			"input",
+			"color",
+			".*\",\n",
+			"opca",
+			"zend_exte",
+			"extension",
+			"zend_extension",
+			"postgr",
+			"pass",
+			"PG_VER",
+			"include_p",
+			"extens",
+			"\"",
+			"variables_order",
+			"varia"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"/"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.composer":
+	{
+		"height": 100.0
+	},
+	"output.exec":
+	{
+		"height": 273.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.xdebug":
+	{
+		"height": 0.0
+	},
+	"project": "lessnichy.sublime-project",
+	"replace":
+	{
+		"height": 62.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 392.0,
+		"selected_items":
+		[
+			[
+				"Authe",
+				"Authentication"
+			]
+		],
+		"width": 664.0
+	},
+	"settings":
+	{
+		"last_automatic_layout":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"vintage":
+		{
+			"_cmdline_cd": "D:\\www\\laravel"
+		},
+		"xdebug":
+		{
+			"hide_conflict": false,
+			"restore_index":
+			{
+				"15":
+				{
+					"group": 0,
+					"index": 0
+				},
+				"16":
+				{
+					"group": 0,
+					"index": 1
+				},
+				"17":
+				{
+					"group": 0,
+					"index": 4
+				},
+				"18":
+				{
+					"group": 0,
+					"index": 5
+				},
+				"19":
+				{
+					"group": 0,
+					"index": 3
+				},
+				"22":
+				{
+					"group": 0,
+					"index": 2
+				}
+			},
+			"restore_layout":
+			{
+				"cells":
+				[
+					[
+						0,
+						0,
+						1,
+						1
+					]
+				],
+				"cols":
+				[
+					0.0,
+					1.0
+				],
+				"rows":
+				[
+					0.0,
+					1.0
+				]
+			}
+		}
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 214.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
