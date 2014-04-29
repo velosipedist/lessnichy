@@ -3,13 +3,17 @@
     "description": "browser hook for native .less compiler",
     "keywords": ["less", "compiler", "browser", "client-side", "lessnichy", "standalone"],
     "require": {
-        "php": ">=5.3.0"
+        "php": ">=5.3.0",
+        "slim/slim": "2.4.*"
     },
     "require-dev": {
-        "slim/slim": "2.4.*",
         "phing/phing": "2.6.*"
     },
+    "autoload": {
+        "psr-4": {"Lessnichy\\": "lib/"},
+        "files": ["lib/Lessnichy.php"]
+    },
     "archive": {
-        "exclude": ["/js", "/css", "/example", "/lessnichy.php", ".gitignore"]
+        "exclude": ["/example", ".gitignore"]
     }
 }

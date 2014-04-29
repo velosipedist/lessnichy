@@ -1,7 +1,8 @@
 {
-    "directories": ["vendor/composer", "vendor/slim", "lib", "css", "js"],
+    "directories": ["vendor/composer", "vendor/slim", "lib"],
     "files": ["vendor/autoload.php"],
-    "main": "lessnichy.php",
+    "main": "vendor/autoload.php",
     "output": "lessnichy.phar",
-    "stub": true
+    "stub": true,
+    "shebang": "#!"
 }
