@@ -1,22 +1,58 @@
 <?php
 namespace Lessnichy;
 
+use Closure;
+
+/**
+ * Class Client
+ * @package Lessnichy
+ */
 class Client
 {
+    /**
+     * @var string API base url
+     */
     private $baseUrl;
+    /**
+     * @var string[] Less stylesheets urls
+     */
     private $stylesheets;
+    /**
+     * @var bool Does LESS head scripts printed
+     */
     private $headPrinted = false;
+    /**
+     * @var bool Whether to use .less sources and browser compilation. Otherwise just print compiled .css
+     */
+    private $enableLessMode = true;
+    /**
+     * @var callable Callback to define {@link enableLessMode}
+     */
+    private $lessModeTrigger;
 
-    function __construct($baseUrl)
+    /**
+     * @param              $baseUrl
+     * @param bool|Closure $lessMode
+     */
+    function __construct($baseUrl, $lessMode = true)
     {
-        $baseUrl       = rtrim($baseUrl, '/');
-        if(php_sapi_name() == 'cli-server'){
+        $baseUrl = rtrim($baseUrl, '/');
+        if (php_sapi_name() == 'cli-server') {
             $baseUrl .= '/index.php';
         }
         $this->baseUrl = $baseUrl;
+        //todo ability to sitch less mode on-the-fly from browser
+        if ($lessMode instanceof Closure) {
+            $this->lessModeTrigger = $lessMode;
+        } else {
+            $this->enableLessMode = (bool) $lessMode;
+        }
     }
 
-    public function add(array $lessStylesheets = [])
+    /**
+     * @param string[] $lessStylesheets full urls to .less files
+     */
+    public function add(array $lessStylesheets = array())
     {
         foreach ($lessStylesheets as $less) {
             $this->stylesheets[] = $less;
@@ -28,43 +64,27 @@ class Client
         register_shutdown_function(
             function () use ($client, $baseurl) {
                 // when Lessnichy used, register client watching libs and resources
-                if ($client->isHeadPrinted()) {
+                if ($client->isHeadPrinted() && $client->inLessMode()) {
+                    //todo link to gzipped glued js
+                    print "<script src='{$baseurl}/js/clean-css.min.js'></script>\n";
                     print "<script src='{$baseurl}/js/lessnichy.js'></script>";
                 }
             }
         );
     }
 
-    public function head(array $options = [] /* todo optional stream handler besides stdout*/)
+    /**
+     * @param array $extraOptions use LESS::* constants
+     */
+    public function head(array $extraOptions = array() /* todo optional stream handler besides stdout*/)
     {
         if (empty($this->stylesheets)) {
             throw new \LogicException("Add some stylesheets first");
         }
-        if (isset($options[Lessnichy::JS])) {
-            $lessJsUrl = $options[Lessnichy::JS];
-            unset($options[Lessnichy::JS]);
+        if ($this->inLessMode()) {
+            $this->printLessStylesheets($extraOptions);
         } else {
-            $lessJsUrl = false;
-        }
-
-        $jsonDefaults  = [Lessnichy::WATCH_INTERVAL => 2500, Lessnichy::DEBUG => true];
-        $optionsMerged = array_merge($jsonDefaults, $options);
-        $json          = json_encode($optionsMerged);
-
-        $optionsMerged['lessnichy'] = [
-            'url' => $this->baseUrl
-        ];
-
-        //        setcookie('Lessnichy.')
-
-        print "<script type='text/javascript'>var less = " . $json . ";</script>\n";
-
-        foreach ($this->stylesheets as $url) {
-            print "<link rel='stylesheet/less' type='text/css' href='$url' />\n";
-        }
-        // if no url provided, assume that less.js connected manually
-        if ($lessJsUrl) {
-            print "<script type='text/javascript' src='$lessJsUrl'></script>\n";
+            $this->printCssStylesheets($extraOptions);
         }
 
         $this->headPrinted = true;
@@ -76,6 +96,60 @@ class Client
     public function isHeadPrinted()
     {
         return $this->headPrinted;
+    }
+
+    /**
+     * @param array $extraOptions
+     */
+    private function printLessStylesheets(array $extraOptions)
+    {
+        if (isset($extraOptions[ Lessnichy::JS ])) {
+            $lessJsUrl = $extraOptions[ Lessnichy::JS ];
+            unset($extraOptions[ Lessnichy::JS ]);
+        } else {
+            $lessJsUrl = $this->baseUrl . '/js/less-1.7.0.min.js';
+        }
+
+        $lessJsOptions = array(Lessnichy::WATCH_INTERVAL => 2500, Lessnichy::DEBUG => true);
+        $lessJsOptions = array_merge($lessJsOptions, $extraOptions);
+
+        $lessJsOptions['lessnichy'] = array(
+            'url' => $this->baseUrl . '/css'
+        );
+        //        setcookie('Lessnichy.')
+
+        print "<script type='text/javascript'>var less = " . json_encode($lessJsOptions) . ";</script>\n";
+
+        foreach ($this->stylesheets as $lessStylesheetUrl) {
+            print "<link rel='stylesheet/less' type='text/css' href='$lessStylesheetUrl' />\n";
+        }
+        // if no url provided, assume that less.js connected manually
+        if ($lessJsUrl) {
+            print "<script type='text/javascript' src='$lessJsUrl'></script>\n";
+        }
+    }
+
+    /**
+     * @see $enableLessMode
+     * @return bool
+     */
+    private function inLessMode()
+    {
+        if (($trigger = $this->lessModeTrigger) instanceof Closure) {
+            return $trigger();
+        }
+        return $this->enableLessMode;
+    }
+
+    /**
+     * Outputs <link> tags to compiled css
+     * @param array $extraOptions
+     */
+    private function printCssStylesheets(array $extraOptions = array())
+    {
+        foreach ($this->stylesheets as $LessStylesheetUrl) {
+            print "<link rel='stylesheet' type='text/css' href='{$LessStylesheetUrl}.css'>";
+        }
     }
 }
  

@@ -1,6 +1,8 @@
 <?php
 // bootstrap app
-$app = new \Slim\Slim();
+use Slim\Slim;
+
+$app = new Slim();
 //todo add auth middleware
 //todo add common Lessnichy\Server injection
 
@@ -19,16 +21,27 @@ $app->get(
     }
 );
 // save less rendered
-$app->put(
-    '/css/:file',
-    function ($file) use ($app) {
+$app->post(
+    '/css/',
+    function () use ($app) {
+        $sheets = $app->request->post('sheets', array());
+        $results = array();
+        foreach ($sheets as $lessStylesheetUrl => $cssContent) {
+            $parts = parse_url($lessStylesheetUrl);
+
+            $cssStylesheetFilename = $_SERVER['DOCUMENT_ROOT'] . $parts['path'] . '.css';
+            file_put_contents($cssStylesheetFilename, $cssContent);
+            $results[$lessStylesheetUrl] = $cssStylesheetFilename;
+        }
+
         //todo minify
-        file_put_contents($file, $app->request->put('contents'));
+        print json_encode($results);
     }
 );
 $app->get(
     '/js/:file',
     function ($file) {
+        //todo glue and gzip lessnichy.js, clean-css.js, less***.js
         print file_get_contents(__DIR__ . '/js/' . $file);
     }
 );

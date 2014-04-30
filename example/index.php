@@ -15,14 +15,13 @@ require_once __DIR__ . "/lessnichy-app/lessnichy.phar"; // production include
 ob_end_clean();
 
 // add() can be used in any sub-template before main layout rendering
-LESS::connect('/lessnichy-app')->add(
-    [
+LESS::connect('/lessnichy-app', false)->add(
+    array(
         '/less/foo.less'
-    ]
+    )
 );
 
 ?>
-
 <!doctype html>
 <html>
 <head>
@@ -31,14 +30,15 @@ LESS::connect('/lessnichy-app')->add(
     <!-- Here will be LESS scripts and sources -->
     <?
     LESS::head(
-        [
-            LESS::JS => '/js/less-1.7.0.min.js',
+        array(
+            //            LESS::JS => '/js/less-1.7.0.min.js', // customize less.js lib
             LESS::DEBUG => true,
             LESS::WATCH_INTERVAL => 5000,
-        ]
+        )
     );
     ?>
     <!-- End of LESS scripts and sources -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.0.min.js"></script>
 </head>
 <body>
 <div class="foo">
@@ -46,3 +46,4 @@ LESS::connect('/lessnichy-app')->add(
 </div>
 </body>
 </html>
+<!--There other js will be appended-->

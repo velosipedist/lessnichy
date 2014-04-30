@@ -1,5 +1,7 @@
 <?php
 namespace Lessnichy {
+    use Closure;
+
     /**
      * Lessnichy magic facade
      */
@@ -27,13 +29,14 @@ namespace Lessnichy {
         private static $server;
 
         /**
-         * @param $baseUrl
+         * @param string $baseUrl full base url to Lessnicy API listener dir
+         * @param bool|Closure   $lessMode
          * @return Client
          */
-        public static function connect($baseUrl)
+        public static function connect($baseUrl, $lessMode = true)
         {
             if (is_null(self::$client)) {
-                self::$client = new Client($baseUrl);
+                self::$client = new Client($baseUrl, $lessMode);
             }
             return self::$client;
         }
@@ -41,7 +44,7 @@ namespace Lessnichy {
         /**
          * @param $lessStylesheets
          */
-        public static function add($lessStylesheets)
+        public static function add(array $lessStylesheets)
         {
             self::ensureClient();
             return self::$client->add($lessStylesheets);
@@ -50,14 +53,14 @@ namespace Lessnichy {
         /**
          * @see LessnichyClient::head()
          */
-        public static function head(array $options = [] /* todo optional stream handler besides stdout*/)
+        public static function head(array $options = array() /* todo optional stream handler besides stdout*/)
         {
             self::ensureClient();
             return self::$client->head($options);
         }
 
         /**
-         *
+         * Check that API client is started up
          */
         private static function ensureClient()
         {
@@ -67,10 +70,12 @@ namespace Lessnichy {
         }
 
         /**
+         * Catch http requests in current folder
          * @return Server
          */
         public static function listen()
         {
+            //todo auto-bootstrap .htaccess
             if (is_null(self::$server)) {
                 self::$server = new Server();
             }
