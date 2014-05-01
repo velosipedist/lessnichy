@@ -149,12 +149,9 @@ class Client
                 print "<link rel='stylesheet' type='text/css' href='{$lessStylesheetUrl}'>";
             }
         }
-        // if no url provided, assume that less.js connected manually
-        if ($lessJsUrl) {
-            print "<script type='text/javascript' src='$lessJsUrl'></script>\n";
-            if ($watch) {
-                print "<script type='text/javascript'> less.watch();\nless.env;\n"."</script>\n";
-            }
+        print "<script type='text/javascript' src='$lessJsUrl'></script>\n";
+        if ($watch) {
+            print "<script type='text/javascript'> less.watch();\nless.env;\n"."</script>\n";
         }
     }
 
