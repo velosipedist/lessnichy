@@ -32,7 +32,7 @@ LESS::connect('/lessnichy-app', false)->add(
     LESS::head(
         array(
             //            LESS::JS => '/js/less-1.7.0.min.js', // customize less.js lib
-            LESS::DEBUG => true,
+            LESS::WATCH => true,
             LESS::WATCH_INTERVAL => 5000,
         )
     );

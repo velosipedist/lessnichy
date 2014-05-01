@@ -12,13 +12,21 @@ namespace Lessnichy {
          */
         const JS = 'less';
         /**
-         * Option for enable/disable watch mode on start
+         * Option for enable/disable watch mode on start, boolean
          */
-        const DEBUG = 'watch';
+        const WATCH = 'watch';
         /**
-         * Option for set watch interval in milliseconds
+         * Option for set watch interval in milliseconds, int
          */
         const WATCH_INTERVAL = 'poll';
+        /**
+         * Whether to auto-start less.watch(), boolean
+         */
+        const WATCH_AUTOSTART = 'watch.autostart';
+        /**
+         * Whether to add ?randomnumber after .less url
+         */
+        const RANDOMIZE_LESS_URL = 'less.randomize';
         /**
          * @var Client
          */
@@ -86,6 +94,7 @@ namespace Lessnichy {
 
 namespace {
     use Lessnichy\Lessnichy;
+
     try {
         $exists = @class_exists('LESS');
     } catch(\Exception $e) {
