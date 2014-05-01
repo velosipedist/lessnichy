@@ -108,6 +108,7 @@ class Client
             Lessnichy::WATCH_AUTOSTART => false,
             Lessnichy::WATCH => true,
             Lessnichy::RANDOMIZE_LESS_URL => true,
+            Lessnichy::DUMP_LINES => 'mediaQuery',
         );
 
         $lessJsOptions = array_merge($lessJsOptions, $extraOptions);

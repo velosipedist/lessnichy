@@ -28,6 +28,10 @@ namespace Lessnichy {
          */
         const RANDOMIZE_LESS_URL = 'less.randomize';
         /**
+         * Which debugging source line nums to dump
+         */
+        const DUMP_LINES = 'dumpLineNumbers';
+        /**
          * @var Client
          */
         private static $client;
