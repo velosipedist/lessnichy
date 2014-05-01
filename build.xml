@@ -11,6 +11,9 @@
                 <echo>Installing Box.phar</echo>
                 <exec command="curl -LSs http://box-project.org/installer.php | php"/>
             </then>
+            <else>
+                <echo>Box already downloaded</echo>
+            </else>
         </if>
         <property name="composer.installed" value="false"/>
         <available property="composer.installed" file="composer.phar"/>
@@ -20,6 +23,9 @@
                 <echo>Installing composer.phar</echo>
                 <exec command="curl -sS https://getcomposer.org/installer | php"/>
             </then>
+            <else>
+                <echo>Composer already downloaded</echo>
+            </else>
         </if>
         <property name="composer.dependencies.installed" value="false"/>
         <available property="composer.dependencies.installed" file="vendor/autoload.php"/>
@@ -28,6 +34,9 @@
             <then>
                 <phingcall target="composer-dependencies-install" />
             </then>
+            <else>
+                <echo>Composer dependencies already installed</echo>
+            </else>
         </if>
     </target>
     <target name="composer-dependencies-install">

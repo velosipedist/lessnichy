@@ -50,6 +50,24 @@ class Client
     }
 
     /**
+     * @param $stylesheetUrl
+     * @return bool
+     */
+    public static function isLess($stylesheetUrl)
+    {
+        return (bool) preg_match('/\.less$/i', parse_url($stylesheetUrl, PHP_URL_PATH));
+    }
+
+    /**
+     * @param $stylesheetUrl
+     * @return bool
+     */
+    public static function isCss($stylesheetUrl)
+    {
+        return (bool) preg_match('/\.css$/i', parse_url($stylesheetUrl, PHP_URL_PATH));
+    }
+
+    /**
      * @param string[] $lessStylesheets full urls to .less files
      */
     public function add(array $lessStylesheets = array())
@@ -114,18 +132,29 @@ class Client
         $lessJsOptions = array_merge($lessJsOptions, $extraOptions);
 
         $lessJsOptions['lessnichy'] = array(
-            'url' => $this->baseUrl . '/css'
+            'url' => $this->baseUrl
         );
-        //        setcookie('Lessnichy.')
+        $watch = (bool) $lessJsOptions[ Lessnichy::DEBUG ];
+        unset($lessJsOptions[ Lessnichy::DEBUG ]);
+        $lessJsOptions['env'] = $watch ? 'development' : 'production';
 
-        print "<script type='text/javascript'>var less = " . json_encode($lessJsOptions) . ";</script>\n";
+        print "<script type='text/javascript'>"
+              . "var less = " . json_encode($lessJsOptions) . ";\n"
+              . "</script>\n";
 
         foreach ($this->stylesheets as $lessStylesheetUrl) {
-            print "<link rel='stylesheet/less' type='text/css' href='$lessStylesheetUrl' />\n";
+            if (self::isLess($lessStylesheetUrl)) {
+                print "<link rel='stylesheet/less' type='text/css' href='$lessStylesheetUrl' />\n";
+            } else {
+                print "<link rel='stylesheet' type='text/css' href='{$lessStylesheetUrl}'>";
+            }
         }
         // if no url provided, assume that less.js connected manually
         if ($lessJsUrl) {
             print "<script type='text/javascript' src='$lessJsUrl'></script>\n";
+            if ($watch) {
+                print "<script type='text/javascript'> less.watch();\nless.env;\n"."</script>\n";
+            }
         }
     }
 
@@ -147,8 +176,8 @@ class Client
      */
     private function printCssStylesheets(array $extraOptions = array())
     {
-        foreach ($this->stylesheets as $LessStylesheetUrl) {
-            print "<link rel='stylesheet' type='text/css' href='{$LessStylesheetUrl}.css'>";
+        foreach ($this->stylesheets as $lessStylesheetUrl) {
+            print "<link rel='stylesheet' type='text/css' href='{$lessStylesheetUrl}.css'>";
         }
     }
 }

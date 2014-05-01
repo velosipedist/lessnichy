@@ -86,8 +86,15 @@ namespace Lessnichy {
 
 namespace {
     use Lessnichy\Lessnichy;
-
-    if (! class_exists('LESS')) {
+    try {
+        $exists = @class_exists('LESS');
+    } catch(\Exception $e) {
+        $exists = false;
+    }
+    if (! $exists ) {
+        /**
+         * Shortut facade to {@link Lessnichy}
+         */
         class LESS extends Lessnichy
         {
         }
