@@ -32,21 +32,14 @@ class Client
 
     /**
      * @param              $baseUrl
-     * @param bool|Closure $lessMode
      */
-    function __construct($baseUrl, $lessMode = true)
+    function __construct($baseUrl)
     {
         $baseUrl = rtrim($baseUrl, '/');
         if (php_sapi_name() == 'cli-server') {
             $baseUrl .= '/index.php';
         }
         $this->baseUrl = $baseUrl;
-        //todo ability to sitch less mode on-the-fly from browser
-        if ($lessMode instanceof Closure) {
-            $this->lessModeTrigger = $lessMode;
-        } else {
-            $this->enableLessMode = (bool) $lessMode;
-        }
     }
 
     /**
@@ -103,7 +96,6 @@ class Client
     private function printLessStylesheets(array $extraOptions)
     {
         $lessJsOptions = array(
-            Lessnichy::JS => $this->baseUrl . '/js/less-1.7.0.min.js',
             Lessnichy::WATCH_INTERVAL => 2500,
             Lessnichy::WATCH_AUTOSTART => false,
             Lessnichy::WATCH => true,
@@ -113,21 +105,21 @@ class Client
 
         $lessJsOptions = array_merge($lessJsOptions, $extraOptions);
 
-        $lessJsUrl = $lessJsOptions[Lessnichy::JS];
-        unset($lessJsOptions[Lessnichy::JS]);
+        $lessJsUrl = $this->baseUrl . '/js/less-1.7.5.min.js';
 
-        $lessJsOptions['lessnichy'] = array(
-            'url' => $this->baseUrl
-        );
         $watch = (bool) $lessJsOptions[Lessnichy::WATCH];
         unset($lessJsOptions[Lessnichy::WATCH]);
-        $lessJsOptions['env'] = $watch ? 'development' : 'production';
 
         $watchAutostart = (bool) $lessJsOptions[Lessnichy::WATCH_AUTOSTART];
         unset($lessJsOptions[Lessnichy::WATCH_AUTOSTART]);
         $randomize = (bool) $lessJsOptions[Lessnichy::RANDOMIZE_LESS_URL];
         unset($lessJsOptions[Lessnichy::RANDOMIZE_LESS_URL]);
 
+        $lessJsOptions['postProcessor'] = 'Lessnichy.postProcess';
+        $lessJsOptions['lessnichy'] = array(
+            'url' => $this->baseUrl
+        );
+        $lessJsOptions['env'] = $watch ? 'development' : 'production';
         $this->js("var less = " . json_encode($lessJsOptions) . ";");
 
         foreach ($this->stylesheets as $lessStylesheetUrl) {
@@ -168,18 +160,33 @@ class Client
         foreach ($this->stylesheets as $lessStylesheetUrl) {
             $this->cssFile($lessStylesheetUrl . '.css');
         }
+        register_shutdown_function(
+            function () {
+                print '<script>try{console.log("Lessnichy is in CSS mode")}catch(e){}</script>';
+            }
+        );
     }
 
     /**
+     * Does client
      * @see $enableLessMode
      * @return bool
      */
     private function inLessMode()
     {
+        //todo ability to sitch less mode on-the-fly from browser
         if (($trigger = $this->lessModeTrigger) instanceof Closure) {
-            return $trigger();
+            return (bool)$trigger();
         }
-        return $this->enableLessMode;
+        if ($this->enableLessMode) {
+            foreach ($this->stylesheets as $href) {
+                if (substr($href, -4, 4) == '.css') {
+                    return false;
+                }
+            }
+            return true;
+        }
+        return false;
     }
 
     /**

@@ -10,16 +10,10 @@
  * This example page is combined entry script and main php template
  * */
 //require_once __DIR__ . "/../vendor/autoload.php"; //debug instead of phar inclusion
+// production include
 ob_start();
-require_once __DIR__ . "/lessnichy-app/lessnichy.phar"; // production include
+require_once __DIR__ . "/lessnichy-app/lessnichy.phar";
 ob_end_clean();
-
-// add() can be used in any sub-template before main layout rendering
-LESS::connect('/lessnichy-app', false)->add(
-    array(
-        '/less/foo.less'
-    )
-);
 
 ?>
 <!doctype html>
@@ -29,11 +23,16 @@ LESS::connect('/lessnichy-app', false)->add(
     <title>Lessnichy example page</title>
     <!-- Here will be LESS scripts and sources -->
     <?
-    LESS::head(
+    // add() can be used in any sub-template before main layout rendering
+    LESS::connect('/lessnichy-app')
+        ->add(array('/less/foo.less'))
+        ->head(
         array(
-            //            LESS::JS => '/js/less-1.7.0.min.js', // customize less.js lib
             LESS::WATCH => true,
             LESS::WATCH_INTERVAL => 5000,
+//            LESS::DUMP_LINES => true,
+//            LESS::WATCH_AUTOSTART => true,
+//            LESS::RANDOMIZE_LESS_URL => true,
         )
     );
     ?>

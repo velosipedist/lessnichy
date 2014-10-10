@@ -1,16 +1,11 @@
 <?php
 namespace Lessnichy {
-    use Closure;
 
     /**
      * Lessnichy magic facade
      */
     class Lessnichy
     {
-        /**
-         * Option for less.js script url
-         */
-        const JS = 'less';
         /**
          * Option for enable/disable watch mode on start, boolean
          */
@@ -32,53 +27,55 @@ namespace Lessnichy {
          */
         const DUMP_LINES = 'dumpLineNumbers';
         /**
+         * @var $this
+         */
+        private static $instance;
+        /**
          * @var Client
          */
-        private static $client;
+        private $client;
         /**
          * @var Server
          */
         private static $server;
 
+        function __construct($baseUrl)
+        {
+            $this->client = new Client($baseUrl);
+        }
+
+
         /**
          * @param string $baseUrl full base url to Lessnicy API listener dir
-         * @param bool|Closure   $lessMode
-         * @return Client
+         * @internal param bool|callable $lessMode
+         * @return static
          */
-        public static function connect($baseUrl, $lessMode = true)
+        public static function connect($baseUrl)
         {
-            if (is_null(self::$client)) {
-                self::$client = new Client($baseUrl, $lessMode);
+            if (is_null(self::$instance)) {
+                self::$instance = new static($baseUrl);
             }
-            return self::$client;
+            return self::$instance;
         }
 
         /**
          * @param $lessStylesheets
+         * @return $this
          */
-        public static function add(array $lessStylesheets)
+        public function add(array $lessStylesheets)
         {
-            self::ensureClient();
-            return self::$client->add($lessStylesheets);
+            $this->client->add($lessStylesheets);
+            return $this;
         }
 
         /**
          * @see LessnichyClient::head()
+         * @return $this
          */
-        public static function head(array $options = array() /* todo optional stream handler besides stdout*/)
+        public function head(array $options = array() /* todo optional stream handler besides stdout*/)
         {
-            self::ensureClient();
-            return self::$client->head($options);
-        }
-
-        /**
-         * Check that API client is started up
-         */
-        private static function ensureClient()
-        {
-            if (is_null(self::$client)) {
-                throw new \LogicException("Lessnichy must be bootstrapped using wakeup()");
-            }
+            $this->client->head($options);
+            return $this;
         }
 
         /**
