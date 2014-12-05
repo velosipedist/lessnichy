@@ -1,20 +1,7 @@
 <project name="Lessnichy" default="build" basedir=".">
-    <property name="phar.output" value="lessnichy.phar"/>
-    <property name="phar.output.example" value="example/lessnichy-app/lessnichy.phar"/>
+    <property name="phar.output" value="build/lessnichy.phar"/>
 
     <target name="setup" depends="clean-build">
-        <property name="box.installed" value="false"/>
-        <available property="box.installed" file="box.phar"/>
-        <if>
-            <isfalse value="${box.installed}"/>
-            <then>
-                <echo>Installing Box.phar</echo>
-                <exec command="curl -LSs http://box-project.org/installer.php | php"/>
-            </then>
-            <else>
-                <echo>Box already downloaded</echo>
-            </else>
-        </if>
         <property name="composer.installed" value="false"/>
         <available property="composer.installed" file="composer.phar"/>
         <if>
@@ -43,22 +30,13 @@
         <echo>Installing composer.phar dependencies</echo>
         <exec command="php composer.phar install"/>
     </target>
-    <target name="composer-dependencies-update">
-        <echo>Updating composer.phar dependencies</echo>
-        <exec command="php composer.phar update -o"/>
-    </target>
     <target name="clean-build">
         <delete file="${phar.output}" failonerror="false"/>
-        <delete file="${phar.output.example}" failonerror="false"/>
-    </target>
-    <target name="reset-setup">
-        <delete file="box.phar" failonerror="false"/>
-        <delete file="composer.phar" failonerror="false"/>
     </target>
     <target name="build" depends="setup">
-        <echo>Starting Box build</echo>
-        <exec command="php box.phar build" passthru="true"/>
-
+        <echo>Starting phar build</echo>
+        <exec command="php ${project.basedir}/build/build-phar.php" passthru="true"/>
+        <delete dir="build/phar"/>
         <property name="lessnichy.built" value="false"/>
         <available property="lessnichy.built" file="${phar.output}"/>
         <if>
@@ -67,8 +45,6 @@
                 <fail message="phar build failed"/>
             </then>
             <else>
-                <!--<exec command="php build/strip-shebang.php ${phar.output}" passthru="true"/>-->
-                <copy file="${phar.output}" tofile="${phar.output.example}"/>
                 <echo>Build successful</echo>
             </else>
         </if>

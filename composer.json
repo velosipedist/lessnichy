@@ -1,19 +1,36 @@
 {
-    "name": "velosipedist/lessnichy",
-    "description": "browser hook for native .less compiler",
-    "keywords": ["less", "compiler", "browser", "client-side", "lessnichy", "standalone"],
-    "require": {
-        "php": ">=5.3.0",
-        "slim/slim": "2.4.*"
-    },
-    "require-dev": {
-        "phing/phing": "2.6.*"
-    },
-    "autoload": {
-        "psr-4": {"Lessnichy\\": "lib/"},
-        "files": ["lib/Lessnichy.php"]
-    },
-    "archive": {
-        "exclude": ["/example", ".gitignore"]
+  "name": "velosipedist/lessnichy",
+  "description": "browser hook for native .less compiler",
+  "keywords": [
+    "less",
+    "compiler",
+    "browser",
+    "client-side",
+    "lessnichy",
+    "standalone"
+  ],
+  "require": {
+    "php": ">=5.3.0",
+    "slim/slim": "2.4.*"
+  },
+  "require-dev": {
+    "phing/phing": "2.6.*",
+    "mtdowling/burgomaster": "0.0.2"
+  },
+  "autoload": {
+    "psr-4": {"Lessnichy\\": "lib/"},
+    "files": ["lib/Lessnichy.php"]
+  },
+  "archive": {
+    "exclude": [
+      "/example",
+      ".gitignore"
+    ]
+  },
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "https://github.com/mtdowling/Burgomaster.git"
     }
+  ]
 }
