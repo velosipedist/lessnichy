@@ -10,12 +10,10 @@
  * This example page is combined entry script and main php template
  * */
 //require_once __DIR__ . "/../vendor/autoload.php"; //debug instead of phar inclusion
-ob_start();
-require_once __DIR__ . "/lessnichy-app/lessnichy.phar"; // production include
-ob_end_clean();
+require_once __DIR__ . "/../build/lessnichy.phar"; // production include
 
 // add() can be used in any sub-template before main layout rendering
-LESS::connect('/lessnichy-app', false)->add(
+LESS::connect('/lessnichy-app', true)->add(
     array(
         '/less/foo.less'
     )
@@ -31,7 +29,6 @@ LESS::connect('/lessnichy-app', false)->add(
     <?
     LESS::head(
         array(
-            //            LESS::JS => '/js/less-1.7.0.min.js', // customize less.js lib
             LESS::WATCH => true,
             LESS::WATCH_INTERVAL => 5000,
         )
